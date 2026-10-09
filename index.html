@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d9f7e5">
+  <title>ภารกิจฮีโร่น้อย พิทักษ์โลก</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="หน้าแรก">
+      <span class="brand-icon">🌎</span>
+      <span>Recycle Hero</span>
+    </a>
+    <div class="top-actions">
+      <span class="score-pill">⭐ คะแนน <b id="totalScore">0</b></span>
+      <button id="soundButton" class="icon-button" aria-label="เปิดหรือปิดเสียง">🔊</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">🌱 สนุกเรียนรู้ รักษ์โลก</span>
+          <h1>ภารกิจฮีโร่น้อย<br><span>พิทักษ์โลก!</span></h1>
+          <p>มาช่วยกันแยกขยะให้ถูกถัง เปลี่ยนโลกให้สะอาดและน่าอยู่กันเถอะ!</p>
+          <label class="name-label" for="playerName">ชื่อฮีโร่ของเรา</label>
+          <input id="playerName" maxlength="20" placeholder="ใส่ชื่อเล่นของหนู">
+          <button id="startButton" class="primary-button">🚀 เริ่มภารกิจ</button>
+          <p class="credit">จัดทำโดย <b>ครูจองซ่า</b></p>
+        </div>
+        
+<div class="hero-art" aria-label="ฮีโร่พิทักษ์โลก">
+  <img
+    src="images/hero-world.png"
+    alt="ฮีโร่พิทักษ์โลกกับถังขยะแยกประเภท"
+    class="hero-cover"
+  />
+  </div>
+</div>
+
+
+      <h2 class="section-heading">🎯 เลือกภารกิจของเรา</h2>
+      <div class="mission-grid">
+        <article class="mission-card green-card">
+          <span class="mission-emoji">📚</span>
+          <h3>เรียนรู้เรื่องขยะ</h3>
+          <p>รู้จักขยะ 4 ประเภทและถังแต่ละสี</p>
+          <button class="secondary-button" data-go="learnScreen">เริ่มเรียนรู้</button>
+        </article>
+        <article class="mission-card yellow-card">
+          <span class="mission-emoji">🗑️</span>
+          <h3>เกมแยกขยะ</h3>
+          <p>เลือกขยะให้ถูกถัง เก็บคะแนนให้ได้มากที่สุด</p>
+          <button class="secondary-button" data-go="gameScreen">เล่นเกม</button>
+        </article>
+        <article class="mission-card pink-card">
+          <span class="mission-emoji">🏆</span>
+          <h3>ทดสอบความรู้</h3>
+          <p>ตอบคำถาม 10 ข้อ เพื่อพิชิตตำแหน่งฮีโร่</p>
+          <button class="secondary-button" data-go="quizScreen">ทำแบบทดสอบ</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="learnScreen" class="screen ">
+      <div class="page-heading">
+        <button class="back-button" data-go="homeScreen">← หน้าแรก</button>
+        <span class="eyebrow">📚 ห้องเรียนรักษ์โลก</span>
+        <h1>รู้จักถังขยะ 4 สี</h1>
+        <p>อ่านคำอธิบาย แล้วไปลองแยกขยะกันเลย!</p>
+      </div>
+      <div class="bins-grid">
+        <article class="bin-card bin-blue">
+          <img class="big-bin"
+     src="images/bin-blue.png"
+     alt="ถังขยะสีน้ำเงิน">
+          <h2>ถังสีน้ำเงิน</h2>
+          <h3>ขยะทั่วไป</h3>
+          <p>ขยะที่รีไซเคิลไม่ได้และไม่เหมาะกับการทำปุ๋ย เช่น ซองขนมเปื้อนอาหารและกระดาษทิชชูใช้แล้ว</p>
+        </article>
+        <article class="bin-card bin-yellow">
+<img class="big-bin"
+     src="images/bin-yellow.png"
+     alt="ถังขยะสีเหลือง">
+          <h2>ถังสีเหลือง</h2>
+          <h3>ขยะรีไซเคิล</h3>
+          <p>วัสดุที่นำกลับมาใช้ประโยชน์ได้ เช่น ขวดพลาสติกสะอาด กระดาษ และกระป๋องเครื่องดื่ม</p>
+        </article>
+        <article class="bin-card bin-green">
+<img class="big-bin"
+     src="images/bin-green.png"
+     alt="ถังขยะสีเขียว">
+          <h2>ถังสีเขียว</h2>
+          <h3>ขยะเปียก</h3>
+          <p>เศษอาหาร เปลือกผลไม้ และเศษผัก เหมาะสำหรับจัดการเป็นปุ๋ยหมัก</p>
+        </article>
+        <article class="bin-card bin-red">
+<img class="big-bin"
+     src="images/bin-red.png"
+     alt="ถังขยะสีแดง">
+          <h2>ถังสีแดง</h2>
+          <h3>ขยะอันตราย</h3>
+          <p>เช่น ถ่านไฟฉายและหลอดไฟบางชนิด ควรแยกส่งจุดรับขยะอันตรายโดยเฉพาะ</p>
+        </article>
+      </div>
+      <div class="tip-box">💡 <b>จำไว้นะ!</b> สีของถังอาจแตกต่างกันตามพื้นที่ ควรดูป้ายกำกับด้วย และล้างบรรจุภัณฑ์รีไซเคิลให้สะอาดก่อนทิ้ง</div>
+      <button class="primary-button centered-button" data-go="gameScreen">🕹️ เข้าเกมแยกขยะ</button>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="page-heading compact-heading">
+        <button class="back-button" data-go="homeScreen">← หน้าแรก</button>
+        <span class="eyebrow">🕹️ ด่านที่ 1</span>
+        <h1>ช่วยน้องขยะหาบ้าน!</h1>
+        <p>ลากขยะไปยังถังที่ถูกต้อง หรือแตะขยะแล้วแตะถังขยะ</p>
+      </div>
+
+      <div class="game-stats">
+        <div>📦 ขยะ <b id="progressText">0/12</b></div>
+        <div>⭐ คะแนน <b id="gameScore">0</b></div>
+        <div>❤️ ชีวิต <b id="livesText">❤️❤️❤️</b></div>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+
+      <div class="playfield">
+        <div class="playfield-decor decor-left">🌳</div>
+        <div class="playfield-decor decor-right">🌷</div>
+        <div class="game-message" id="gameMessage" aria-live="polite">
+          🌟 เลือกขยะแล้วนำไปลงถังให้ถูกต้องนะ!
+        </div>
+        <div id="trashArea" class="trash-area" aria-label="เลือกขยะ"></div>
+      </div>
+
+      <h2 class="bin-instruction">👇 เลือกถังขยะที่ถูกต้อง</h2>
+
+<div id="gameBins" class="game-bins">
+  <button class="game-bin bin-blue" data-bin="general" aria-label="ถังขยะทั่วไป">
+    <img src="images/bin-blue.png" alt="" class="bin-image">
+    <b>ทั่วไป</b><small>สีน้ำเงิน</small>
+  </button>
+
+  <button class="game-bin bin-yellow" data-bin="recycle" aria-label="ถังขยะรีไซเคิล">
+    <img src="images/bin-yellow.png" alt="" class="bin-image">
+    <b>รีไซเคิล</b><small>สีเหลือง</small>
+  </button>
+
+  <button class="game-bin bin-green" data-bin="organic" aria-label="ถังขยะเปียก">
+    <img src="images/bin-green.png" alt="" class="bin-image">
+    <b>ขยะเปียก</b><small>สีเขียว</small>
+  </button>
+
+  <button class="game-bin bin-red" data-bin="hazard" aria-label="ถังขยะอันตราย">
+    <img src="images/bin-red.png" alt="" class="bin-image">
+    <b>อันตราย</b><small>สีแดง</small>
+  </button>
+</div>
+
+      <p class="small-note">หมายเหตุ: ในเกมใช้ตัวอย่างขยะทั่วไปเพื่อการเรียนรู้ ขยะจริงควรแยกตามป้ายและแนวทางของท้องถิ่น</p>
+      <div class="button-row">
+        <button id="restartGame" class="secondary-button">🔄 เริ่มด่านใหม่</button>
+        <button class="primary-button" data-go="quizScreen">📝 ไปแบบทดสอบ</button>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen">
+      <div class="page-heading compact-heading">
+        <button class="back-button" data-go="homeScreen">← หน้าแรก</button>
+        <span class="eyebrow">🏆 ด่านที่ 2</span>
+        <h1>แบบทดสอบฮีโร่รักษ์โลก</h1>
+        <p>ตอบคำถามให้ครบ 10 ข้อ เพื่อรับดาวแห่งความรู้</p>
+      </div>
+      <div id="quizPanel" class="quiz-panel">
+        <div class="quiz-topline">
+          <span id="quizProgress">ข้อ 1 จาก 10</span>
+          <span>⭐ <b id="quizScore">0</b> คะแนน</span>
+        </div>
+        <div class="progress-track"><div id="quizProgressBar"></div></div>
+        <div class="quiz-illustration" id="quizIllustration">🌍✨</div>
+        <h2 id="questionText">ขยะชนิดนี้ควรทิ้งถังใด?</h2>
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+        <button id="nextQuestion" class="primary-button centered-button" disabled>ข้อต่อไป ➜</button>
+      </div>
+      <div id="quizResult" class="result-panel hidden">
+        <div id="resultEmoji" class="result-emoji">🏆</div>
+        <h2 id="resultTitle">เก่งมาก ฮีโร่น้อย!</h2>
+        <p id="resultText"></p>
+        <div class="result-score"><span>คะแนนแบบทดสอบ</span><b id="finalQuizScore">0/10</b></div>
+        <p id="resultRank" class="rank-badge"></p>
+        <button id="retryQuiz" class="primary-button">🔁 ทำแบบทดสอบอีกครั้ง</button>
+        <button class="secondary-button" data-go="homeScreen">🏠 กลับหน้าหลัก</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌱 โลกน่าอยู่ เริ่มต้นได้ที่ตัวเรา</p>
+    <p>สื่อคอมพิวเตอร์ช่วยสอน (CAI) | ผู้จัดทำ: <b>ครูจองซ่า</b></p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
